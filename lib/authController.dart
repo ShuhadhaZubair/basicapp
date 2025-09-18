@@ -20,14 +20,15 @@ class AuthController extends GetxController {
 
   Future<void> login(String email, String password) async {
     isLoading.value = true;
-    final success = await _repo.login(email, password);
+    bool success = await _repo.login(email, password);
     isLoading.value = false;
     if (success) {
       Get.offAllNamed(AppRoutes.home);
     } else {
-      Get.snackbar("Error", "Invalid email or password");
+      Get.snackbar("Error", "Invalid credentials");
     }
   }
+
 
   Future<void> logout() async {
     await _repo.logout();
