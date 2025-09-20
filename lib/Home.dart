@@ -32,15 +32,15 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Chatbot"),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () => Get.find<AuthController>().logout(),
-          )
-        ],
-      ),
+      // appBar: AppBar(
+      //   title: const Text("Chatbot"),
+      //   actions: [
+      //     IconButton(
+      //       icon: const Icon(Icons.logout),
+      //       onPressed: () => Get.find<AuthController>().logout(),
+      //     )
+      //   ],
+      // ),
 
       body: Container(
         decoration: const BoxDecoration(
@@ -52,6 +52,14 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
              SizedBox(height: 40.h),
+            Row(mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.logout),
+                  onPressed: () => Get.find<AuthController>().logout(),
+                ),
+              ],
+            ),
              Text(
               "Chatbot",
               style: TextStyle(
@@ -60,6 +68,7 @@ class _HomeState extends State<Home> {
                 color: Colors.white,
               ),
             ),
+
              SizedBox(height: 20.h),
 
             // Chat card
